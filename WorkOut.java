@@ -1,5 +1,5 @@
 import sun.audio.*;
-
+//http://stackoverflow.com/questions/11919009/using-javax-sound-sampled-clip-to-play-loop-and-stop-mutiple-sounds-in-a-game
 import java.io.FileInputStream;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
