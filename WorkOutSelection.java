@@ -8,8 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
-import java.awt.BorderLayout;
+
 @SuppressWarnings("serial")
 public class WorkOutSelection extends JFrame{
 	JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
