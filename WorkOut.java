@@ -21,11 +21,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-	/**
-	 * Handles playing, stoping, and looping of sounds for the game.
-	 * @author Tyler Thomas
-	 *
-	 */
 	@SuppressWarnings("serial")
 	public class WorkOut extends JFrame {
 		static int st=0;
