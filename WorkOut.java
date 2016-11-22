@@ -1,9 +1,9 @@
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -19,12 +19,20 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 
-	@SuppressWarnings("serial")
+
+	@SuppressWarnings({ "serial", "unused" })
 	public class WorkOut extends JFrame {
 		static int st=0;
-		static String tune = "resources/Ms_New_Booty_Lyrics.wav";
+		static String tune = "resources/glutes_music.wav";
+	    int counter;
+	    JLabel timerLabel,promptLabel;
+	    JButton btnStartWorkout;
+	    Timer timer;
+		
 		public static void main(String[] args) 
 		{
 			WorkOut frame = new WorkOut();
@@ -71,9 +79,11 @@ import javax.swing.SwingConstants;
 			music(tune);	
 		}
 	    private static Clip clip;
+	    private JTextField tf;
 	    public WorkOut() 
 	    {
 	    	createGui();
+
 
 	    	setSize(550,450);
 			setTitle("Leg WorkOut");
@@ -129,6 +139,7 @@ import javax.swing.SwingConstants;
 
 		private void createGui() {
 			
+			
 			Image img =  new ImageIcon("resources/bckground_workout.jpg").getImage().getScaledInstance(550, 405,
 			        Image.SCALE_SMOOTH);
 			ImageIcon ico = new ImageIcon(img);
@@ -161,6 +172,7 @@ import javax.swing.SwingConstants;
 				 
 			panel.add(start);
 			
+			
 			getContentPane().add(panel,BorderLayout.CENTER);
 			
 			JButton btnBack = new JButton("back");
@@ -168,6 +180,7 @@ import javax.swing.SwingConstants;
 			ActionListener b = new backL();
 			btnBack.addActionListener(b);
 			panel.add(btnBack);
+			
 			
 			
 			JPanel panel_1 = new JPanel();
@@ -178,12 +191,64 @@ import javax.swing.SwingConstants;
 			panel_1.add(animationE);
 			animationE.setIcon(c);
 			
-			JLabel bgL = new JLabel("");
-			bgL.setIcon(ico);
-			bgL.setBounds(0, 0, 550, 405);
-			panel.add(bgL);
+			tf = new JTextField();
+			tf.setBounds(36, 135, 86, 20);
+			panel.add(tf);
+			tf.setColumns(10);
+			
+		    timerLabel = new JLabel("");
+			timerLabel.setBounds(36, 208, 86, 25);
+			panel.add(timerLabel);
+			
+		    promptLabel = new JLabel("");
+			promptLabel.setBounds(77, 264, 46, 14);
+			panel.add(promptLabel);
+			
+		    btnStartWorkout = new JButton("Start Workout");
+			btnStartWorkout.setBounds(21, 88, 101, 36);
+			panel.add(btnStartWorkout);
+			
+		    event e =  new event();
+		    btnStartWorkout.addActionListener(e);
+		    timerLabel.setForeground(Color.BLACK);
 		}
 		public void play(){
 	        clip.start();
 	    }
-	 }
+	 
+	
+    
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    public class event implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            int count = (int)(Double.parseDouble(tf.getText()));
+            timerLabel.setText("Time left: " + count);
+            TimeClass tc = new TimeClass(count);
+            timer = new Timer(1000, tc);
+            timer.start();
+        }
+    }
+    
+    public class TimeClass implements ActionListener {
+        int counter;
+        public TimeClass(int counter) {
+            this.counter= counter;
+   }
+        public void actionPerformed(ActionEvent tc) {
+            counter--;
+            if(counter >= 1) {
+                timerLabel.setText("Time left: " + counter);
+            }
+            else {
+                timer.stop();
+                timerLabel.setText("Done!");
+                Toolkit.getDefaultToolkit().beep();
+            }
+        }
+    }
+	}
