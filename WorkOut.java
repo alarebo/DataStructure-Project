@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
+import javax.swing.JTextArea;
 
 
 	@SuppressWarnings({ "serial", "unused" })
@@ -85,7 +86,7 @@ import javax.swing.Timer;
 	    	createGui();
 
 
-	    	setSize(550,450);
+	    	setSize(950,650);
 			setTitle("Leg WorkOut");
 			setVisible(true);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
@@ -211,6 +212,13 @@ import javax.swing.Timer;
 		    event e =  new event();
 		    btnStartWorkout.addActionListener(e);
 		    timerLabel.setForeground(Color.BLACK);
+		    tf.setText("0");
+		    
+		    JTextArea txtrThatWhenYou = new JTextArea();
+		    txtrThatWhenYou.setEditable(false);
+		    txtrThatWhenYou.setText("1)Stand with your head facing forward and your chest held \r\nup and out.\r\n\r\n2Place your feet shoulder-width apart or slightly wider. Extend\r\n your hands straight out in front of you to help keep your\r\n balance. You can also bend the elbows or clasp the fingers.\r\n\r\n3)Sit back and down like you're sitting into an imaginary chair.\r\n Keep your head facing forward as your upper body bends\r\n forward a bit. Rather than allowing your back to round, let your\r\n lower back arch slightly as you descend.\r\n\r\n4)Lower down so your thighs are as parallel to the floor as possible,\r\n with your knees over your ankles. Press your weight back into your\r\n heels.\r\n\r\n5)Keep your body tight, and push through your heels to bring yourself\r\n back to the starting position.");
+		    txtrThatWhenYou.setBounds(395, 63, 555, 385);
+		    panel.add(txtrThatWhenYou);
 		}
 		public void play(){
 	        clip.start();
