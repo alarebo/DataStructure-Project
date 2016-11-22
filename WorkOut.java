@@ -2,7 +2,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -54,6 +53,20 @@ import javax.swing.SwingConstants;
 				 {
 					clip.stop(); 
 				 }
+			 } 
+		 
+		 }
+		 class backL implements ActionListener
+		 {
+			 public void actionPerformed(ActionEvent event)
+			 {	
+				 if(clip.isActive())
+				 {
+					clip.stop(); 
+				 }
+				 WorkOutSelection back = new WorkOutSelection();
+				 back.setVisible(true);
+				 dispose();
 			 } 
 		 
 		 }
@@ -157,7 +170,10 @@ import javax.swing.SwingConstants;
 			
 			JButton btnBack = new JButton("back");
 			btnBack.setBounds(149, 326, 75, 25);
+			ActionListener b = new backL();
+			btnBack.addActionListener(b);
 			panel.add(btnBack);
+			
 			
 			JPanel panel_1 = new JPanel();
 			panel_1.setBounds(149, 48, 228, 263);
