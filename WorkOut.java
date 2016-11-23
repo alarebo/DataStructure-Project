@@ -41,7 +41,10 @@ import javax.swing.Timer;
 	    String icon = "resources/squats.gif";
 	    String stIcon = "";
 	    ImageIcon c = new ImageIcon(icon);
-	    
+	    ImageIcon legIcon = new ImageIcon("resources/leg.gif");
+		ImageIcon armIcon = new ImageIcon("resources/arm.gif");
+		ImageIcon cardioIcon = new ImageIcon("resources/cardio.gif");
+		ImageIcon coreIcon = new ImageIcon("resources/sitUP.gif");
 	    
 	    
 		public static void main(String[] args) 
@@ -291,7 +294,7 @@ import javax.swing.Timer;
                 timer.stop();
                 timerLabel.setText("Done!");
                 Toolkit.getDefaultToolkit().beep();
-                if(done ==timerLabel.getText())
+                if(done == timerLabel.getText())
                 {
                 	Stackicon(change);
                 	icon= path+stIcon;
@@ -311,10 +314,10 @@ import javax.swing.Timer;
     	  {
         	  Iconstack.push("cardio.gif"); 
         	  Iconstack.push("arm.gif");
-        	  Iconstack.push("pushUp.gif"); 
+        	  Iconstack.push("sitUP.gif"); 
         	  return Iconstack;
     	  }
-    	  if(change>0)
+    	  if(change > 0)
     	  {
     		  stIcon = Iconstack.pop();
     		  Iconstack.push("arm.gif");
