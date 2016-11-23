@@ -47,6 +47,11 @@ import javax.swing.Timer;
 		ImageIcon armIcon = new ImageIcon("resources/arm.gif");
 		ImageIcon cardioIcon = new ImageIcon("resources/cardio.gif");
 		ImageIcon coreIcon = new ImageIcon("resources/sitUP.gif");
+		//with equipment
+		ImageIcon legIcon1 = new ImageIcon("resources/Equipment/legEquip.gif");
+		ImageIcon armIcon1 = new ImageIcon("resources/Equipment/armEquip.gif");
+		ImageIcon coreIcon1 = new ImageIcon("resources/Equipment/coreEquip.gif");
+		ImageIcon cardioIcon1 = new ImageIcon("resources/Equipment/cardioEquip.gif");
 	    
 	    
 		public static void main(String[] args) 
