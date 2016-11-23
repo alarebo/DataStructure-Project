@@ -31,6 +31,7 @@ public class WorkOutSelection extends JFrame{
 	private void createPanel() 
 	{
 		
+		//W/out equipment icons
 		Image img =  new ImageIcon("resources/bckground_workout.jpg").getImage().getScaledInstance(607, 373,
 		        Image.SCALE_SMOOTH);
 		Image leggo =  new ImageIcon("resources/leg.jpg").getImage().getScaledInstance(114, 159,
@@ -41,12 +42,27 @@ public class WorkOutSelection extends JFrame{
 		        Image.SCALE_SMOOTH);
 		Image cardioh = new ImageIcon("resources/cardio.jpg").getImage().getScaledInstance(114, 159,
 		        Image.SCALE_SMOOTH);
+		//Equipment Icons
+		Image leggE =  new ImageIcon("resources/Equipment/legEquip.jpg").getImage().getScaledInstance(114, 159,
+		        Image.SCALE_SMOOTH);
+		Image armmE = new ImageIcon("resources/Equipment/armEquip.jpg").getImage().getScaledInstance(114, 159,
+		        Image.SCALE_SMOOTH);
+		Image coreeE = new ImageIcon("resources/Equipment/coreEquip.jpg").getImage().getScaledInstance(114, 159,
+		        Image.SCALE_SMOOTH);
+		Image cardiooE = new ImageIcon("resources/Equipment/cardioEquip.jpg").getImage().getScaledInstance(114, 159,
+		        Image.SCALE_SMOOTH);
 
-
+		//w/out equipment
 		ImageIcon legIcon = new ImageIcon("resources/leg.gif");
 		ImageIcon armIcon = new ImageIcon("resources/arm.gif");
 		ImageIcon coreIcon = new ImageIcon("resources/pushUp.gif");
 		ImageIcon cardioIcon = new ImageIcon("resources/cardio.gif");
+		
+		//w/ equipment -- add these to workout
+		ImageIcon legIcon1 = new ImageIcon("resources/Equipment/legEquip.gif");
+		ImageIcon armIcon1 = new ImageIcon("resources/Equipment/armEquip.gif");
+		ImageIcon coreIcon1 = new ImageIcon("resources/Equipment/coreEquip.gif");
+		ImageIcon cardioIcon1 = new ImageIcon("resources/Equipment/cardioEquip.gif");
 
 		
 		ImageIcon icon = new ImageIcon(img);
@@ -56,58 +72,98 @@ public class WorkOutSelection extends JFrame{
 		tabbedPane.addTab("With Equipment", null, eqpPanel, null);
 		eqpPanel.setLayout(null);
 		
-		JButton button = new JButton("Full Workout");
-		button.setBounds(10, 131, 111, 34);
-		eqpPanel.add(button);
 		
-		JButton button_1 = new JButton("Legs");
-		button_1.setBounds(150, 24, 97, 25);
-		eqpPanel.add(button_1);
+		JButton legB = new JButton("Legs");
+		legB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WorkOut a = new WorkOut();
+				a.animationE.setIcon(a.legIcon1);
+				a.Stackicon(5);
+				a.setVisible(true);
+				dispose();
+			}
+		});
+		legB.setBounds(150, 24, 97, 25);
+		eqpPanel.add(legB);
 		
-		JButton button_2 = new JButton("Arms");
-		button_2.setBounds(295, 24, 97, 25);
-		eqpPanel.add(button_2);
+		JButton armB = new JButton("Arms");
+		armB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WorkOut b = new WorkOut();
+				b.animationE.setIcon(b.armIcon1);
+				b.Stackicon(6);
+				b.setVisible(true);
+				dispose();
+			}
+		});
+		armB.setBounds(295, 24, 97, 25);
+		eqpPanel.add(armB);
 		
-		JButton button_3 = new JButton("Cardio");
-		button_3.setBounds(440, 24, 97, 25);
-		eqpPanel.add(button_3);
+		JButton cardioB = new JButton("Cardio");
+		cardioB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WorkOut c = new WorkOut();
+				c.animationE.setIcon(c.cardioIcon1);
+				c.Stackicon(7);
+				c.setVisible(true);
+				dispose();
+			}
+		});
+		cardioB.setBounds(440, 24, 97, 25);
+		eqpPanel.add(cardioB);
 		
-		JButton button_4 = new JButton("Core");
-		button_4.setBounds(585, 24, 97, 25);
-		eqpPanel.add(button_4);
+		JButton coreB = new JButton("Core");
+		armB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WorkOut d = new WorkOut();
+				d.animationE.setIcon(d.coreIcon1);
+				d.Stackicon(8);
+				d.setVisible(true);
+				dispose();
+			}
+		});
+		coreB.setBounds(585, 24, 97, 25);
+		eqpPanel.add(coreB);
+		
+		JButton fullB = new JButton("Full Workout");
+		fullB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WorkOut e = new WorkOut();
+				e.Stackicon(9);
+				e.setVisible(true);
+				dispose();
+			}
+		});
+		fullB.setBounds(10, 131, 111, 34);
+		eqpPanel.add(fullB);
+		
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
 		panel_2.setBounds(131, 51, 582, 199);
 		eqpPanel.add(panel_2);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(155, 11, 114, 159);
-		panel_2.add(label);
+		JLabel armE = new JLabel("");
+		armE.setBounds(155, 11, 114, 159);
+		panel_2.add(armE);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setBounds(303, 11, 114, 159);
-		panel_2.add(label_1);
+		JLabel cardioE = new JLabel("");
+		cardioE.setBounds(303, 11, 114, 159);
+		panel_2.add(cardioE);
 		
-		JLabel label_2 = new JLabel("");
-		label_2.setBounds(447, 11, 114, 159);
-		panel_2.add(label_2);
+		JLabel coreE = new JLabel("");
+		coreE.setBounds(447, 11, 114, 159);
+		panel_2.add(coreE);
 		
-		JLabel label_3 = new JLabel("");
-		label_3.setBounds(10, 11, 114, 159);
-		panel_2.add(label_3);
+		JLabel legE = new JLabel("");
+		legE.setBounds(10, 11, 114, 159);
+		panel_2.add(legE);
 		
-		
-		//
-		
-		//leg.setIcon(legIcon);
-		//arm.setIcon(armIcon);
-		//coreW.setIcon(coreIcon);
-		//cardio.setIcon(cardioIcon);
-		
-		
-		
-		
+		legE.setIcon(new ImageIcon (leggE));
+		coreE.setIcon(new ImageIcon (coreeE));
+		cardioE.setIcon(new ImageIcon (cardiooE));
+		armE.setIcon(new ImageIcon (armmE));
+	
 		
 		//first tabbed panel
 		JPanel panel = new JPanel();
@@ -131,20 +187,54 @@ public class WorkOutSelection extends JFrame{
 		JButton Arms = new JButton("Arms");
 		Arms.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				WorkOut g = new WorkOut();
+				g.animationE.setIcon(g.armIcon);
+				g.Stackicon(1);
+				g.setVisible(true);
+				dispose();
 			}
 		});
 		Arms.setBounds(295, 23, 97, 25);
 		panel.add(Arms);
 		
+		
 		JButton Cardio = new JButton("Cardio");
+		Cardio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WorkOut h = new WorkOut();
+				h.animationE.setIcon(h.cardioIcon);
+				h.Stackicon(2);
+				h.setVisible(true);
+				dispose();
+			}
+		});
 		Cardio.setBounds(440, 23, 97, 25);
 		panel.add(Cardio);
 		
+		
 		JButton Core = new JButton("Core");
+		Core.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WorkOut i = new WorkOut();
+				i.animationE.setIcon(i.coreIcon);
+				i.Stackicon(3);
+				i.setVisible(true);
+				dispose();
+			}
+		});
 		Core.setBounds(585, 23, 97, 25);
 		panel.add(Core);
 		
+		
 		JButton Full = new JButton("Full Workout");
+		Full.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WorkOut j = new WorkOut();
+				j.Stackicon(4);
+				j.setVisible(true);
+				dispose();
+			}
+		});
 		Full.setBounds(10, 130, 111, 34);
 		panel.add(Full);
 		
