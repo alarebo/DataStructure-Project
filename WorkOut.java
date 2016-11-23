@@ -30,6 +30,7 @@ import javax.swing.Timer;
 	public class WorkOut extends JFrame {
 		static int st=0;
     	Stack<String> Iconstack = new Stack<String>();
+    	Stack<String> textstack = new Stack<String>();
     	int change = 0;
     	
 
@@ -317,10 +318,15 @@ import javax.swing.Timer;
         	  Iconstack.push("sitUP.gif"); 
         	  return Iconstack;
     	  }
-    	  if(change > 0)
-    	  {
+    	  
+    	  if(change > 0){
+    		  if(!Iconstack.isEmpty()){
     		  stIcon = Iconstack.pop();
-    		  Iconstack.push("arm.gif");
+    		  }else{
+    			  WorkOutSelection bckk = new WorkOutSelection();
+    		  		bckk.setVisible(true);
+    		  		dispose();
+    		  }
     	  }
 		return Iconstack;
       }
