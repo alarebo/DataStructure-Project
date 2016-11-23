@@ -313,9 +313,9 @@ import javax.swing.Timer;
     	  
     	  if(i == 0)
     	  {
-        	  Iconstack.push("cardio.gif"); 
-        	  Iconstack.push("arm.gif");
-        	  Iconstack.push("sitUP.gif"); 
+        	 Iconstack.push("butterfly_kick.gif"); 
+        	  Iconstack.push("donkey_kicks.gif");
+        	  Iconstack.push("superman.gif");  
         	  return Iconstack;
     	  }
     	  
