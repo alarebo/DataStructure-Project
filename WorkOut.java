@@ -32,7 +32,7 @@ import javax.swing.Timer;
     	Stack<String> Iconstack = new Stack<String>();
     	Stack<String> textstack = new Stack<String>();
     	int change = 0;
-    	
+    	JTextArea txtArea;
 
 		static String tune = "resources/glutes_music.wav";
 	    int counter;
@@ -40,6 +40,7 @@ import javax.swing.Timer;
 	    JButton btnStartWorkout,Exit;
 	    Timer timer;
 	    String icon = "resources/squats.gif";
+	    String stText= "";
 	    String stIcon = "";
 	    ImageIcon c = new ImageIcon(icon);
 	    ImageIcon legIcon = new ImageIcon("resources/leg.gif");
@@ -54,6 +55,7 @@ import javax.swing.Timer;
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 			frame.play();
 			frame.Stackicon(st);
+			frame.tStack(st);
 	    }
 		
 		static class stpl implements ActionListener
@@ -240,11 +242,11 @@ import javax.swing.Timer;
 		    Exit.addActionListener(d);
 		    
 		    
-		    JTextArea txtrThatWhenYou = new JTextArea();
-		    txtrThatWhenYou.setEditable(false);
-		    txtrThatWhenYou.setText("1)Stand with your head facing forward and your chest held \r\nup and out.\r\n\r\n2Place your feet shoulder-width apart or slightly wider. Extend\r\n your hands straight out in front of you to help keep your\r\n balance. You can also bend the elbows or clasp the fingers.\r\n\r\n3)Sit back and down like you're sitting into an imaginary chair.\r\n Keep your head facing forward as your upper body bends\r\n forward a bit. Rather than allowing your back to round, let your\r\n lower back arch slightly as you descend.\r\n\r\n4)Lower down so your thighs are as parallel to the floor as possible,\r\n with your knees over your ankles. Press your weight back into your\r\n heels.\r\n\r\n5)Keep your body tight, and push through your heels to bring yourself\r\n back to the starting position.");
-		    txtrThatWhenYou.setBounds(395, 63, 555, 385);
-		    panel.add(txtrThatWhenYou);
+		    txtArea = new JTextArea();
+		    txtArea.setEditable(false);
+		    txtArea.setText("1)Stand with your head facing forward and your chest held \r\nup and out.\r\n\r\n2Place your feet shoulder-width apart or slightly wider. Extend\r\n your hands straight out in front of you to help keep your\r\n balance. You can also bend the elbows or clasp the fingers.\r\n\r\n3)Sit back and down like you're sitting into an imaginary chair.\r\n Keep your head facing forward as your upper body bends\r\n forward a bit. Rather than allowing your back to round, let your\r\n lower back arch slightly as you descend.\r\n\r\n4)Lower down so your thighs are as parallel to the floor as possible,\r\n with your knees over your ankles. Press your weight back into your\r\n heels.\r\n\r\n5)Keep your body tight, and push through your heels to bring yourself\r\n back to the starting position.");
+		    txtArea.setBounds(395, 63, 555, 385);
+		    panel.add(txtArea);
 		}
 		public void play(){
 	        clip.start();
@@ -298,10 +300,11 @@ import javax.swing.Timer;
                 if(done == timerLabel.getText())
                 {
                 	Stackicon(change);
+                	tStack(change);
                 	icon= path+stIcon;
                 	c=new ImageIcon(icon);
                 	animationE.setIcon(c);
-                	System.out.println(icon);
+                	txtArea.setText(stText);
                 }
                 
             }
@@ -313,15 +316,18 @@ import javax.swing.Timer;
     	  
     	  if(i == 0)
     	  {
-        	 Iconstack.push("butterfly_kick.gif"); 
-        	  Iconstack.push("donkey_kicks.gif");
+        	  Iconstack.push("butterfly_kick.gif");        	 
+        	  Iconstack.push("donkey_kicks.gif"); 
         	  Iconstack.push("superman.gif");  
+        	 
         	  return Iconstack;
     	  }
     	  
     	  if(change > 0){
     		  if(!Iconstack.isEmpty()){
     		  stIcon = Iconstack.pop();
+    		
+    		  
     		  }else{
     			  WorkOutSelection bckk = new WorkOutSelection();
     		  		bckk.setVisible(true);
@@ -329,5 +335,33 @@ import javax.swing.Timer;
     		  }
     	  }
 		return Iconstack;
+		
+      }
+      public Stack <String> tStack(int i)
+      {
+    	  
+    	  if(i == 0)
+    	  {
+        	 
+        	 textstack.push("1) Both legs should be elevated off the ground.\n 2)Bring one leg up. Hold the other leg in the air.\n 3)Bring one leg up, and the other down. Continue \nthis motion to do buttefly kicks.");
+        	  textstack.push("1) Get on all fours so that your hands are shoulder\n  width apart and your knees are straight below your hips.\n 2)Bracing your abdominals and keeping your knee bent lift one leg up behind\n you until it is in line with your body and your foot is parallel to the ceiling.\n 3) Lower back down to the starting position and repeat with the other leg.");    	    
+        	  textstack.push("1) Lie face down on your stomach with the arms extended\n out in front of you and the legs extended behind you\n 2)In one movement lift the arms and legs up towards the ceiling making a U\n shape\n 3)Make sure that you do not lock out the limbs and keep the core\n as still as possible\n 4)Hold for 2-5 seconds and lower back down to complete 1 rep");
+        	  return textstack;
+    	  }
+    	  
+    	  if(change > 0){
+    		  if(!textstack.isEmpty()){
+    		  
+    		  stText = textstack.pop();
+    		  
+    		  }else{
+    			  WorkOutSelection bckk = new WorkOutSelection();
+    		  		bckk.setVisible(true);
+    		  		dispose();
+    		  }
+    	  }
+		return textstack;
+		
       }
    }
+	
