@@ -72,7 +72,7 @@ public class WorkOutSelection extends JFrame{
 		tabbedPane.addTab("With Equipment", null, eqpPanel, null);
 		eqpPanel.setLayout(null);
 		
-		
+		//creates an action listener for legs
 		JButton legB = new JButton("Legs");
 		legB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -113,7 +113,7 @@ public class WorkOutSelection extends JFrame{
 		eqpPanel.add(cardioB);
 		
 		JButton coreB = new JButton("Core");
-		armB.addActionListener(new ActionListener() {
+		coreB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				WorkOut d = new WorkOut();
 				d.animationE.setIcon(d.coreIcon1);
@@ -128,9 +128,9 @@ public class WorkOutSelection extends JFrame{
 		JButton fullB = new JButton("Full Workout");
 		fullB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				WorkOut e = new WorkOut();
-				e.Stackicon(9);
-				e.setVisible(true);
+				WorkOut x = new WorkOut();
+				x.Stackicon(9);
+				x.setVisible(true);
 				dispose();
 			}
 		});
