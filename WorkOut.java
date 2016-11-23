@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Stack;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -19,36 +20,47 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
-import javax.swing.JTextArea;
 
 
 	@SuppressWarnings({ "serial", "unused" })
 	public class WorkOut extends JFrame {
 		static int st=0;
+    	Stack<String> Iconstack = new Stack<String>();
+    	int change = 0;
+    	
+
 		static String tune = "resources/glutes_music.wav";
 	    int counter;
-	    JLabel timerLabel,promptLabel;
-	    JButton btnStartWorkout;
+	    JLabel timerLabel,promptLabel,animationE;
+	    JButton btnStartWorkout,Exit;
 	    Timer timer;
-		
+	    String icon = "resources/squats.gif";
+	    String stIcon = "";
+	    ImageIcon c = new ImageIcon(icon);
+	    
+	    
+	    
 		public static void main(String[] args) 
 		{
 			WorkOut frame = new WorkOut();
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 			frame.play();
+			frame.Stackicon(st);
 	    }
+		
 		static class stpl implements ActionListener
 		 {
 			 public void actionPerformed(ActionEvent event)
 			 {	
 				 clip.setFramePosition(0);  // Must always rewind!
 				 clip.start();
-			 } 
-		 
+			 }  
 		 }
+		
 		static class stspl implements ActionListener
 		 {
 			 public void actionPerformed(ActionEvent event)
@@ -57,10 +69,11 @@ import javax.swing.JTextArea;
 				 {
 					clip.stop(); 
 				 }
-			 } 
-		 
+			 }  
 		 }
-		 class backL implements ActionListener
+		
+		
+		 class backL implements ActionListener//the actionListenr for back Button 
 		 {
 			 public void actionPerformed(ActionEvent event)
 			 {	
@@ -71,9 +84,18 @@ import javax.swing.JTextArea;
 				 WorkOutSelection back = new WorkOutSelection();
 				 back.setVisible(true);
 				 dispose();
-			 } 
-		 
+			 }  
 		 }
+		 
+		 
+		 class exitListener implements ActionListener
+		 {
+			 public void actionPerformed(ActionEvent event)
+			 {
+				 dispose();
+			 }
+		 }
+		 
 
 		public static void open()
 		{
@@ -141,15 +163,10 @@ import javax.swing.JTextArea;
 		private void createGui() {
 			
 			
-			Image img =  new ImageIcon("resources/bckground_workout.jpg").getImage().getScaledInstance(550, 405,
-			        Image.SCALE_SMOOTH);
-			ImageIcon ico = new ImageIcon(img);
-			
 	    	JButton start =  new JButton("Start");
-	    	start.setBounds(319, 326, 75, 25);
+	    	start.setBounds(250, 326, 75, 25);
 			JButton Stop =  new JButton("stop");
-			Stop.setBounds(239, 326, 61, 25);
-			JLabel animation = new JLabel();
+			Stop.setBounds(178, 326, 61, 25);
 			
 			ActionListener l =  new stpl();
 			start.addActionListener(l);
@@ -158,9 +175,7 @@ import javax.swing.JTextArea;
 			
 			
 			ImageIcon c = new ImageIcon("resources/squats.gif");
-			
-			animation.setIcon(c);
-			
+						
 			JPanel panel = new JPanel();
 			panel.setLayout(null);
 	        
@@ -177,7 +192,7 @@ import javax.swing.JTextArea;
 			getContentPane().add(panel,BorderLayout.CENTER);
 			
 			JButton btnBack = new JButton("back");
-			btnBack.setBounds(149, 326, 75, 25);
+			btnBack.setBounds(91, 326, 75, 25);
 			ActionListener b = new backL();
 			btnBack.addActionListener(b);
 			panel.add(btnBack);
@@ -188,7 +203,7 @@ import javax.swing.JTextArea;
 			panel_1.setBounds(149, 48, 228, 263);
 			panel.add(panel_1);
 			
-			JLabel animationE = new JLabel();
+			animationE = new JLabel();
 			panel_1.add(animationE);
 			animationE.setIcon(c);
 			
@@ -213,6 +228,13 @@ import javax.swing.JTextArea;
 		    btnStartWorkout.addActionListener(e);
 		    timerLabel.setForeground(Color.BLACK);
 		    tf.setText("0");
+		    
+		    Exit = new JButton("Exit");
+		    Exit.setBounds(152, 364, 97, 25);
+		    panel.add(Exit);
+		    ActionListener d = new exitListener();
+		    Exit.addActionListener(d);
+		    
 		    
 		    JTextArea txtrThatWhenYou = new JTextArea();
 		    txtrThatWhenYou.setEditable(false);
@@ -239,24 +261,64 @@ import javax.swing.JTextArea;
             TimeClass tc = new TimeClass(count);
             timer = new Timer(1000, tc);
             timer.start();
+            String b = timerLabel.getText();
+            if(b == "done")
+            {
+            	
+            }
         }
     }
     
-    public class TimeClass implements ActionListener {
+    public class TimeClass implements ActionListener 
+    {
         int counter;
-        public TimeClass(int counter) {
+        
+        public TimeClass(int counter) 
+        {
             this.counter= counter;
-   }
-        public void actionPerformed(ActionEvent tc) {
+        }
+        public void actionPerformed(ActionEvent tc) 
+        {
+    	    String path = "resources/";
+    	    String done = "Done!";
             counter--;
             if(counter >= 1) {
                 timerLabel.setText("Time left: " + counter);
             }
-            else {
+            else
+            {
+            	change++;
                 timer.stop();
                 timerLabel.setText("Done!");
                 Toolkit.getDefaultToolkit().beep();
+                if(done ==timerLabel.getText())
+                {
+                	Stackicon(change);
+                	icon= path+stIcon;
+                	c=new ImageIcon(icon);
+                	animationE.setIcon(c);
+                	System.out.println(icon);
+                }
+                
             }
-        }
-    }
-	}
+         
+         }
+      }
+      public Stack <String> Stackicon(int i)
+      {
+    	  
+    	  if(i == 0)
+    	  {
+        	  Iconstack.push("cardio.gif"); 
+        	  Iconstack.push("arm.gif");
+        	  Iconstack.push("pushUp.gif"); 
+        	  return Iconstack;
+    	  }
+    	  if(change>0)
+    	  {
+    		  stIcon = Iconstack.pop();
+    		  Iconstack.push("arm.gif");
+    	  }
+		return Iconstack;
+      }
+   }
