@@ -33,7 +33,14 @@ public class WorkOutSelection extends JFrame{
 		
 		Image img =  new ImageIcon("resources/bckground_workout.jpg").getImage().getScaledInstance(607, 373,
 		        Image.SCALE_SMOOTH);
-
+		Image leggo =  new ImageIcon("resources/leg.jpg").getImage().getScaledInstance(114, 159,
+		        Image.SCALE_SMOOTH);
+		Image armmo = new ImageIcon("resources/arm.jpg").getImage().getScaledInstance(114, 159,
+		        Image.SCALE_SMOOTH);
+		Image coreeo = new ImageIcon("resources/sitUP.jpg").getImage().getScaledInstance(114, 159,
+		        Image.SCALE_SMOOTH);
+		Image cardioh = new ImageIcon("resources/cardio.jpg").getImage().getScaledInstance(114, 159,
+		        Image.SCALE_SMOOTH);
 
 
 		ImageIcon legIcon = new ImageIcon("resources/leg.gif");
@@ -49,38 +56,46 @@ public class WorkOutSelection extends JFrame{
 		tabbedPane.addTab("With Equipment", null, eqpPanel, null);
 		eqpPanel.setLayout(null);
 		
-		JButton leg = new JButton("Legs");
-		leg.setBounds(93, 13, 83, 25);
-		eqpPanel.add(leg);
+		JButton button = new JButton("Full Workout");
+		button.setBounds(10, 131, 111, 34);
+		eqpPanel.add(button);
 		
-		JButton arm = new JButton("Arms");
-		arm.setBounds(185, 13, 83, 25);
-		eqpPanel.add(arm);
+		JButton button_1 = new JButton("Legs");
+		button_1.setBounds(150, 24, 97, 25);
+		eqpPanel.add(button_1);
 		
-		JButton cardio = new JButton("Cardio");
-		cardio.setBounds(280, 13, 97, 25);
-		eqpPanel.add(cardio);
+		JButton button_2 = new JButton("Arms");
+		button_2.setBounds(295, 24, 97, 25);
+		eqpPanel.add(button_2);
 		
-		JButton coreW = new JButton("Core");
-		coreW.setBounds(395, 13, 97, 25);
-		eqpPanel.add(coreW);
+		JButton button_3 = new JButton("Cardio");
+		button_3.setBounds(440, 24, 97, 25);
+		eqpPanel.add(button_3);
 		
-		JButton fullB = new JButton("Full Workout");
-		fullB.setBounds(12, 74, 83, 25);
-		eqpPanel.add(fullB);
+		JButton button_4 = new JButton("Core");
+		button_4.setBounds(585, 24, 97, 25);
+		eqpPanel.add(button_4);
 		
-		JButton button_5 = new JButton("New button");
-		button_5.setBounds(12, 127, 83, 25);
-		eqpPanel.add(button_5);
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBounds(131, 51, 582, 199);
+		eqpPanel.add(panel_2);
 		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(103, 47, 423, 2);
-		eqpPanel.add(separator_1);
+		JLabel label = new JLabel("");
+		label.setBounds(155, 11, 114, 159);
+		panel_2.add(label);
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setLayout(null);
-		panel_3.setBounds(103, 51, 423, 188);
-		eqpPanel.add(panel_3);
+		JLabel label_1 = new JLabel("");
+		label_1.setBounds(303, 11, 114, 159);
+		panel_2.add(label_1);
+		
+		JLabel label_2 = new JLabel("");
+		label_2.setBounds(447, 11, 114, 159);
+		panel_2.add(label_2);
+		
+		JLabel label_3 = new JLabel("");
+		label_3.setBounds(10, 11, 114, 159);
+		panel_2.add(label_3);
 		
 		
 		//
@@ -110,52 +125,58 @@ public class WorkOutSelection extends JFrame{
 				dispose();
 			}
 		});
-		Leg.setBounds(150, 23, 83, 25);
+		Leg.setBounds(150, 23, 97, 25);
 		panel.add(Leg);
 		
 		JButton Arms = new JButton("Arms");
-		Arms.setBounds(270, 23, 118, 25);
+		Arms.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		Arms.setBounds(295, 23, 97, 25);
 		panel.add(Arms);
 		
 		JButton Cardio = new JButton("Cardio");
-		Cardio.setBounds(432, 23, 97, 25);
+		Cardio.setBounds(440, 23, 97, 25);
 		panel.add(Cardio);
 		
 		JButton Core = new JButton("Core");
-		Core.setBounds(600, 23, 97, 25);
+		Core.setBounds(585, 23, 97, 25);
 		panel.add(Core);
 		
 		JButton Full = new JButton("Full Workout");
-		Full.setBounds(12, 65, 107, 25);
+		Full.setBounds(10, 130, 111, 34);
 		panel.add(Full);
-		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(12, 159, 107, 25);
-		panel.add(btnNewButton_1);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(131, 50, 582, 199);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(147, 0, 135, 175);
-		panel_1.add(label);
+		JLabel armL = new JLabel("");
+		armL.setBounds(155, 11, 114, 159);
+		panel_1.add(armL);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setBounds(294, 0, 135, 175);
-		panel_1.add(label_1);
+		JLabel cardioL = new JLabel("");
+		cardioL.setBounds(303, 11, 114, 159);
+		panel_1.add(cardioL);
 		
-		JLabel label_2 = new JLabel("");
-		label_2.setBounds(447, 0, 135, 175);
-		panel_1.add(label_2);
+		JLabel coreL = new JLabel("");
+		coreL.setBounds(447, 11, 114, 159);
+		panel_1.add(coreL);
 		
 		
 		JLabel legL = new JLabel("");
-		legL.setBounds(12, 0, 135, 175);
+		legL.setBounds(10, 11, 114, 159);
 		panel_1.add(legL);
 		legL.setIcon(legIcon);
 		getContentPane().add(tabbedPane);
+		
+		
+		legL.setIcon(new ImageIcon (leggo));
+		coreL.setIcon(new ImageIcon (coreeo));
+		cardioL.setIcon(new ImageIcon (cardioh));
+		armL.setIcon(new ImageIcon (armmo));
 	}
 	public static void main(String[] args)
 	{
