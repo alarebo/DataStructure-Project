@@ -46,7 +46,7 @@ public class WorkOutSelection extends JFrame{
 		
 		
 		JPanel eqpPanel = new JPanel();
-		tabbedPane.addTab("New tab", null, eqpPanel, null);
+		tabbedPane.addTab("With Equipment", null, eqpPanel, null);
 		eqpPanel.setLayout(null);
 		
 		JButton leg = new JButton("Legs");
@@ -96,14 +96,18 @@ public class WorkOutSelection extends JFrame{
 		
 		//first tabbed panel
 		JPanel panel = new JPanel();
-		tabbedPane.addTab("With Equipment", null, panel, null);
+		tabbedPane.addTab("Without Equipment", null, panel, null);
 		panel.setLayout(null);
 		
 		JButton Leg = new JButton("Legs");
 		Leg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				
+				WorkOut f = new WorkOut();
+				f.animationE.setIcon(f.legIcon);
+				f.Stackicon(0);
+				f.setVisible(true);
+				dispose();
 			}
 		});
 		Leg.setBounds(150, 23, 83, 25);
