@@ -192,9 +192,11 @@ public class NewUser extends JFrame {
 			 if(count ==0)
 			 {
 				 names = name.getText();
-				 //String UserName = username.getText();	
-				 //String PassWord = new String(passWord.getPassword());
+				 String UserName = username.getText();	
+				 String PassWord = new String(passWord.getPassword());
 				 UserLogin lg = new UserLogin();
+				 lg.u = UserName;
+				 lg.p = PassWord;
 				 lg.setVisible(true);
 				 dispose();
 				 JOptionPane.showMessageDialog(null,"account Created "+names);
