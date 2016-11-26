@@ -16,6 +16,7 @@ public class UserLogin extends JFrame
 	JPanel panel = new JPanel();
 	private JLabel bcLabel;
 	String user =" ";
+	String u="test",p="12345";
 	
 	public static void main(String[] args)
 	{
@@ -85,7 +86,7 @@ public class UserLogin extends JFrame
 			user = txtuser.getText();
 
 
-		      if(user.equals("test") && pswd.equals("12345")) 
+		      if(user.equals(u) && pswd.equals(p)) 
 		      {
 
 		        LoadingWindow newScreen =new LoadingWindow();
