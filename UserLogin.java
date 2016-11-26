@@ -15,6 +15,7 @@ public class UserLogin extends JFrame
 	private JPasswordField pass;
 	JPanel panel = new JPanel();
 	private JLabel bcLabel;
+	String user =" ";
 	
 	public static void main(String[] args)
 	{
@@ -22,19 +23,19 @@ public class UserLogin extends JFrame
 	   logframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	   logframe.setVisible(true);
 	}
-
 	
 	public UserLogin()
 	{
+		setResizable(false);
 		setTitle("User Authentication");
-		creatCompenent();
+		createCompenent();
 		createPanel();
 		setSize(FRAME_WIDTH,FRAME_HEIGHT);
 		setBackground(Color.blue);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	private void creatCompenent() 
+	private void createCompenent() 
 	{
 
 		txtuser =  new JTextField(15);
@@ -80,16 +81,26 @@ public class UserLogin extends JFrame
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			String user = txtuser.getText();
 			String pswd = new String(pass.getPassword());
+			user = txtuser.getText();
+
 
 		      if(user.equals("test") && pswd.equals("12345")) 
 		      {
 
-		        WorkOutSelection newScreen =new WorkOutSelection();
-
+		        LoadingWindow newScreen =new LoadingWindow();
 		        newScreen.setVisible(true);
-
+		        newScreen.userTEXT(user);
+		        newScreen.setTitle("LOADING....");
+				Timer timer = new Timer(6000, new ActionListener() {
+				    public void actionPerformed(ActionEvent e) {
+				    	newScreen.dispose();
+				        WorkOutSelection f = new WorkOutSelection();
+				        f.setVisible(true);
+				        }
+				    });
+			    timer.setRepeats(false);
+			    timer.start();
 		        dispose();
 		      } 
 		      else 
@@ -108,7 +119,7 @@ public class UserLogin extends JFrame
 	}
 	private void createPanel()
 	{
-		Image img =  new ImageIcon("resources/background.jpg").getImage().getScaledInstance(382, 153,
+		Image img =  new ImageIcon("resources/background.jpg").getImage().getScaledInstance(394, 165,
 		        Image.SCALE_SMOOTH);
 		ImageIcon icon = new ImageIcon(img);
 		JPanel panel = new JPanel();
@@ -128,7 +139,7 @@ public class UserLogin extends JFrame
 		
 		bcLabel = new JLabel("");
 		bcLabel.setIcon(icon);
-		bcLabel.setBounds(0, 0, 382, 153);
+		bcLabel.setBounds(0, 0, 394, 165);
 		panel.add(bcLabel);
 
 	}
