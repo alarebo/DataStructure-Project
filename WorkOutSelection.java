@@ -16,7 +16,7 @@ public class WorkOutSelection extends JFrame{
 
 	public WorkOutSelection() {
 		setResizable(false);
-		setTitle("Workout Seclection");
+		setTitle("Workout Selection");
 		
 		setSize(789,460);
 		
@@ -89,6 +89,7 @@ public class WorkOutSelection extends JFrame{
 				WorkOut a = new WorkOut();
 				a.animationE.setIcon(a.legIcon1);
 				a.Stackicon(5);
+				a.tStack(5);
 				a.setTitle("Leg Workout w/ Equipment");
 				a.setVisible(true);
 				dispose();
@@ -103,6 +104,7 @@ public class WorkOutSelection extends JFrame{
 				WorkOut b = new WorkOut();
 				b.animationE.setIcon(b.armIcon1);
 				b.Stackicon(6);
+				b.tStack(6);
 				b.setTitle("Arms Workout w/ Equipment");
 				b.setVisible(true);
 				dispose();
@@ -117,6 +119,7 @@ public class WorkOutSelection extends JFrame{
 				WorkOut c = new WorkOut();
 				c.animationE.setIcon(c.cardioIcon1);
 				c.Stackicon(7);
+				c.tStack(7);
 				c.setTitle("Cardio Workout w/ Equipment");
 				c.setVisible(true);
 				dispose();
@@ -131,6 +134,7 @@ public class WorkOutSelection extends JFrame{
 				WorkOut d = new WorkOut();
 				d.animationE.setIcon(d.coreIcon1);
 				d.Stackicon(8);
+				d.tStack(8);
 				d.setTitle("Core Workout w/ Equipment");
 				d.setVisible(true);
 				dispose();
@@ -144,6 +148,7 @@ public class WorkOutSelection extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				WorkOut x = new WorkOut();
 				x.Stackicon(9);
+				x.tStack(9);
 				x.setTitle("Full Workout w/ Equipment");
 				x.setVisible(true);
 				dispose();
@@ -221,6 +226,7 @@ public class WorkOutSelection extends JFrame{
 				WorkOut g = new WorkOut();
 				g.animationE.setIcon(g.armIcon);
 				g.Stackicon(1);
+				g.tStack(1);
 				g.setTitle("Arm Workout");
 				g.setVisible(true);
 				dispose();
@@ -236,6 +242,7 @@ public class WorkOutSelection extends JFrame{
 				WorkOut h = new WorkOut();
 				h.animationE.setIcon(h.cardioIcon);
 				h.Stackicon(2);
+				h.tStack(2);
 				h.setTitle("Cardio Workout");
 				h.setVisible(true);
 				dispose();
@@ -251,6 +258,7 @@ public class WorkOutSelection extends JFrame{
 				WorkOut i = new WorkOut();
 				i.animationE.setIcon(i.coreIcon);
 				i.Stackicon(3);
+				i.tStack(3);
 				i.setTitle("Core Workout");
 				i.setVisible(true);
 				dispose();
@@ -265,6 +273,7 @@ public class WorkOutSelection extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				WorkOut j = new WorkOut();
 				j.Stackicon(4);
+				j.tStack(4);
 				j.setTitle("Full Body Workout");
 				j.setVisible(true);
 				dispose();
