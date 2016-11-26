@@ -8,12 +8,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JSeparator;
+import java.awt.Color;
 
 @SuppressWarnings("serial")
 public class WorkOutSelection extends JFrame{
 	JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
 	public WorkOutSelection() {
+		setResizable(false);
 		setTitle("Workout Seclection");
 		
 		setSize(789,460);
@@ -32,8 +34,7 @@ public class WorkOutSelection extends JFrame{
 	{
 		
 		//W/out equipment icons
-		Image img =  new ImageIcon("resources/bckground_workout.jpg").getImage().getScaledInstance(607, 373,
-		        Image.SCALE_SMOOTH);
+
 		Image leggo =  new ImageIcon("resources/leg.jpg").getImage().getScaledInstance(114, 159,
 		        Image.SCALE_SMOOTH);
 		Image armmo = new ImageIcon("resources/arm.jpg").getImage().getScaledInstance(114, 159,
@@ -52,6 +53,8 @@ public class WorkOutSelection extends JFrame{
 		Image cardiooE = new ImageIcon("resources/Equipment/cardioEquip.jpg").getImage().getScaledInstance(114, 159,
 		        Image.SCALE_SMOOTH);
 
+	
+
 		//w/out equipment
 		ImageIcon legIcon = new ImageIcon("resources/leg.gif");
 		ImageIcon armIcon = new ImageIcon("resources/arm.gif");
@@ -63,14 +66,21 @@ public class WorkOutSelection extends JFrame{
 		ImageIcon armIcon1 = new ImageIcon("resources/Equipment/armEquip.gif");
 		ImageIcon coreIcon1 = new ImageIcon("resources/Equipment/coreEquip.gif");
 		ImageIcon cardioIcon1 = new ImageIcon("resources/Equipment/cardioEquip.gif");
+		
 
-		
-		ImageIcon icon = new ImageIcon(img);
-		
+				
 		
 		JPanel eqpPanel = new JPanel();
 		tabbedPane.addTab("With Equipment", null, eqpPanel, null);
 		eqpPanel.setLayout(null);
+		Image bcground = new ImageIcon("resources/bcgselection.jpg").getImage().getScaledInstance(778, 395,
+		        Image.SCALE_SMOOTH);
+		Image im = new ImageIcon("resources/inframe.png").getImage().getScaledInstance(651, 252,
+		        Image.SCALE_SMOOTH);
+		ImageIcon inW = new ImageIcon(im);
+
+		
+
 		
 		//creates an action listener for legs
 		JButton legB = new JButton("Legs");
@@ -142,32 +152,47 @@ public class WorkOutSelection extends JFrame{
 		fullB.setBounds(10, 131, 111, 34);
 		eqpPanel.add(fullB);
 		
+		JLabel icL = new JLabel("New label");
+		icL.setBounds(103, 24, 651, 252);
+		icL.setIcon(inW);
+		eqpPanel.add(icL);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBounds(131, 51, 582, 199);
-		eqpPanel.add(panel_2);
+		
+		JPanel insidePanel = new JPanel();
+		insidePanel.setBackground(Color.gray);
+
+		insidePanel.setForeground(Color.BLACK);
+		insidePanel.setLayout(null);
+		//insidePanel.setOpaque(false);
+		insidePanel.setBounds(131, 51, 582, 199);
+		eqpPanel.add(insidePanel);
 		
 		JLabel armE = new JLabel("");
 		armE.setBounds(155, 11, 114, 159);
-		panel_2.add(armE);
+		insidePanel.add(armE);
 		
 		JLabel cardioE = new JLabel("");
 		cardioE.setBounds(303, 11, 114, 159);
-		panel_2.add(cardioE);
+		insidePanel.add(cardioE);
 		
 		JLabel coreE = new JLabel("");
 		coreE.setBounds(447, 11, 114, 159);
-		panel_2.add(coreE);
+		insidePanel.add(coreE);
 		
 		JLabel legE = new JLabel("");
 		legE.setBounds(10, 11, 114, 159);
-		panel_2.add(legE);
+		insidePanel.add(legE);
 		
 		legE.setIcon(new ImageIcon (leggE));
 		coreE.setIcon(new ImageIcon (coreeE));
 		cardioE.setIcon(new ImageIcon (cardiooE));
 		armE.setIcon(new ImageIcon (armmE));
+		ImageIcon ic = new ImageIcon(bcground);
+		
+		JLabel bcgLabel = new JLabel("");
+		bcgLabel.setBounds(0, 0, 778, 395);
+		bcgLabel.setIcon(ic);
+		eqpPanel.add(bcgLabel);
 	
 		
 		//first tabbed panel
@@ -182,6 +207,7 @@ public class WorkOutSelection extends JFrame{
 				WorkOut f = new WorkOut();
 				f.animationE.setIcon(f.legIcon);
 				f.Stackicon(0);
+				f.tStack(0);
 				f.setVisible(true);
 				dispose();
 			}
