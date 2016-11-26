@@ -43,7 +43,7 @@ import javax.swing.Timer;
 	    String stText= "";
 	    String stIcon = "";
 	    ImageIcon c = new ImageIcon(icon);
-	    ImageIcon legIcon = new ImageIcon("resources/leg.gif");
+	    ImageIcon legIcon = new ImageIcon("resources/legs/leg.gif");
 		ImageIcon armIcon = new ImageIcon("resources/arm.gif");
 		ImageIcon cardioIcon = new ImageIcon("resources/cardio.gif");
 		ImageIcon coreIcon = new ImageIcon("resources/sitUP.gif");
@@ -112,6 +112,7 @@ import javax.swing.Timer;
 		{
 			music(tune);	
 		}
+		
 	    private static Clip clip;
 	    private JTextField tf;
 	    public WorkOut() 
@@ -128,7 +129,7 @@ import javax.swing.Timer;
 
 	    }
 	    
-	    public static  void music(String fileName) {	      
+	    public static void music(String fileName) {	      
 	    	
 	    	try 
 	    	{
@@ -304,8 +305,8 @@ import javax.swing.Timer;
                 Toolkit.getDefaultToolkit().beep();
                 if(done == timerLabel.getText())
                 {
-                	Stackicon(change);
-                	tStack(change);
+                	Stackicon(change=20);
+                	tStack(change=20);
                 	icon= path+stIcon;
                 	c=new ImageIcon(icon);
                 	animationE.setIcon(c);
@@ -319,14 +320,23 @@ import javax.swing.Timer;
       public Stack <String> Stackicon(int i)
       {
     	  
-    	  if(i == 0)
+    	  if(i == 0)	//legs
     	  {
-        	  Iconstack.push("butterfly_kick.gif");        	 
-        	  Iconstack.push("donkey_kicks.gif"); 
-        	  Iconstack.push("superman.gif");  
+        	  Iconstack.push("legs/butterfly_kick.gif");        	 
+        	  Iconstack.push("legs/donkey_kicks.gif"); 
+        	  Iconstack.push("legs/superman.gif");  
         	 
         	  return Iconstack;
     	  }
+    	  if(i == 1 && Iconstack.isEmpty())	//arms
+    	  {
+    		  Iconstack.push("horizontal_arm_swing.gif");
+    		  Iconstack.push("pushUP.gif");
+    		  Iconstack.push("revarmcircles.gif");
+    		  
+    		  return Iconstack;
+    	  }
+    	  
     	  
     	  if(change > 0){
     		  if(!Iconstack.isEmpty()){
@@ -353,6 +363,15 @@ import javax.swing.Timer;
         	  textstack.push("1) Lie face down on your stomach with the arms extended\n out in front of you and the legs extended behind you\n 2)In one movement lift the arms and legs up towards the ceiling making a U\n shape\n 3)Make sure that you do not lock out the limbs and keep the core\n as still as possible\n 4)Hold for 2-5 seconds and lower back down to complete 1 rep");
         	  return textstack;
     	  }
+    	  if(i == 1 && textstack.isEmpty())
+    	  {
+        	 
+        	 textstack.push("1) Both legs should be elevated off the ground.\n 2)Bring one leg up. Hold the other leg in the air.\n 3)Bring one leg up, and the other down. Continue \nthis motion to do buttefly kicks.");
+        	  textstack.push("1) Get on all fours so that your hands are shoulder\n  width apart and your knees are straight below your hips.\n 2)Bracing your abdominals and keeping your knee bent lift one leg up behind\n you until it is in line with your body and your foot is parallel to the ceiling.\n 3) Lower back down to the starting position and repeat with the other leg.");    	    
+        	  textstack.push("1) Lie face down on your stomach with the arms extended\n out in front of you and the legs extended behind you\n 2)In one movement lift the arms and legs up towards the ceiling making a U\n shape\n 3)Make sure that you do not lock out the limbs and keep the core\n as still as possible\n 4)Hold for 2-5 seconds and lower back down to complete 1 rep");
+        	  return textstack;
+    	  }
+    	  
     	  
     	  if(change > 0){
     		  if(!textstack.isEmpty()){
