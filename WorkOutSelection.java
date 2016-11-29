@@ -56,19 +56,7 @@ public class WorkOutSelection extends JFrame{
 	
 
 		//w/out equipment
-		ImageIcon legIcon = new ImageIcon("resources/leg.gif");
-		ImageIcon armIcon = new ImageIcon("resources/arm.gif");
-		ImageIcon coreIcon = new ImageIcon("resources/pushUp.gif");
-		ImageIcon cardioIcon = new ImageIcon("resources/cardio.gif");
-		
-		//w/ equipment -- add these to workout
-		ImageIcon legIcon1 = new ImageIcon("resources/Equipment/legEquip.gif");
-		ImageIcon armIcon1 = new ImageIcon("resources/Equipment/armEquip.gif");
-		ImageIcon coreIcon1 = new ImageIcon("resources/Equipment/coreEquip.gif");
-		ImageIcon cardioIcon1 = new ImageIcon("resources/Equipment/cardioEquip.gif");
-		
-
-				
+		ImageIcon legIcon = new ImageIcon("resources/leg.gif");				
 		
 		JPanel eqpPanel = new JPanel();
 		tabbedPane.addTab("With Equipment", null, eqpPanel, null);
@@ -88,6 +76,7 @@ public class WorkOutSelection extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				WorkOut a = new WorkOut();
 				a.animationE.setIcon(a.legIcon1);
+				a.txtArea.setText(a.legText1);
 				a.Stackicon(5);
 				a.tStack(5);
 				a.setTitle("Leg Workout w/ Equipment");
@@ -103,6 +92,7 @@ public class WorkOutSelection extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				WorkOut b = new WorkOut();
 				b.animationE.setIcon(b.armIcon1);
+				b.txtArea.setText(b.armText1);
 				b.Stackicon(6);
 				b.tStack(6);
 				b.setTitle("Arms Workout w/ Equipment");
@@ -118,6 +108,7 @@ public class WorkOutSelection extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				WorkOut c = new WorkOut();
 				c.animationE.setIcon(c.cardioIcon1);
+				c.txtArea.setText(c.cardioText1);
 				c.Stackicon(7);
 				c.tStack(7);
 				c.setTitle("Cardio Workout w/ Equipment");
@@ -133,6 +124,7 @@ public class WorkOutSelection extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				WorkOut d = new WorkOut();
 				d.animationE.setIcon(d.coreIcon1);
+				d.txtArea.setText(d.coreText1);
 				d.Stackicon(8);
 				d.tStack(8);
 				d.setTitle("Core Workout w/ Equipment");
@@ -147,8 +139,11 @@ public class WorkOutSelection extends JFrame{
 		fullB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				WorkOut x = new WorkOut();
+				x.animationE.setIcon(x.fullIcon);
+				x.txtArea.setText(x.fullText1);
 				x.Stackicon(9);
 				x.tStack(9);
+				
 				x.setTitle("Full Workout w/ Equipment");
 				x.setVisible(true);
 				dispose();
@@ -157,7 +152,7 @@ public class WorkOutSelection extends JFrame{
 		fullB.setBounds(10, 131, 111, 34);
 		eqpPanel.add(fullB);
 		
-		JLabel icL = new JLabel("New label");
+		JLabel icL = new JLabel("");
 		icL.setBounds(103, 24, 651, 252);
 		icL.setIcon(inW);
 		eqpPanel.add(icL);
@@ -211,6 +206,7 @@ public class WorkOutSelection extends JFrame{
 			{
 				WorkOut f = new WorkOut();
 				f.animationE.setIcon(f.legIcon);
+				f.txtArea.setText(f.legText);
 				f.Stackicon(0);
 				f.tStack(0);
 				f.setVisible(true);
@@ -225,6 +221,7 @@ public class WorkOutSelection extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				WorkOut g = new WorkOut();
 				g.animationE.setIcon(g.armIcon);
+				g.txtArea.setText(g.armText);
 				g.Stackicon(1);
 				g.tStack(1);
 				g.setTitle("Arm Workout");
@@ -241,6 +238,7 @@ public class WorkOutSelection extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				WorkOut h = new WorkOut();
 				h.animationE.setIcon(h.cardioIcon);
+				h.txtArea.setText(h.cardioText);
 				h.Stackicon(2);
 				h.tStack(2);
 				h.setTitle("Cardio Workout");
@@ -257,6 +255,7 @@ public class WorkOutSelection extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				WorkOut i = new WorkOut();
 				i.animationE.setIcon(i.coreIcon);
+				i.txtArea.setText(i.coreText);
 				i.Stackicon(3);
 				i.tStack(3);
 				i.setTitle("Core Workout");
@@ -272,6 +271,8 @@ public class WorkOutSelection extends JFrame{
 		Full.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				WorkOut j = new WorkOut();
+				j.animationE.setIcon(j.fullIcon);
+				j.txtArea.setText(j.fullText);
 				j.Stackicon(4);
 				j.tStack(4);
 				j.setTitle("Full Body Workout");
