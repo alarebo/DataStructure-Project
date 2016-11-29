@@ -44,6 +44,7 @@ public class WorkOut extends JFrame {
 	String stText= "";
 	String stIcon = "";
 	ImageIcon c = new ImageIcon(icon);
+	
 	ImageIcon legIcon = new ImageIcon("resources/legs/leg.gif");
 	String legText = "This is your leg workout!!!";
 	ImageIcon armIcon = new ImageIcon("resources/arm.gif");
@@ -502,14 +503,14 @@ public class WorkOut extends JFrame {
 		}
 		if(i == 7 && textstack.isEmpty()){ 	//CARDIO W/ EQUIP
 			textstack.push("Treadmill: \n\n Equipment Needed: treadmill \n\n 1)Start by placing the speed at a comfortable walk. \n If you want, increase the speed until you are into a jog \n or run. \n\n 2)You can also place the treadmill on an incline to increase the \n difficulty.");
-			textstack.push("Elliptical: \n\n Equipment Needed: equipment \n\n 1)Place your feet on the foot plates and grab the arm handles. \n\n 2)Set your resistance so that it is challenging and start the elliptical \n motion by pulling machine arm with one arm and push the \n other machine arm. \n\n 3)Pick a pace that will elevate your heart rate yet let you stay on  \n the machine for a while.");
-			textstack.push("Recumbent Bike: \n\n Equipment Needed: \n\n 1)Sit in the seat and adjust the seat so that your knee is slightly \n bent when the pedal is in the farthest position. \n\n 2)Adjust the resistance so that it is challenging yet allows you to keep \n good technique.");
+			textstack.push("Elliptical: \n\n Equipment Needed: elliptical \n\n 1)Place your feet on the foot plates and grab the arm handles. \n\n 2)Set your resistance so that it is challenging and start the elliptical \n motion by pulling machine arm with one arm and push the \n other machine arm. \n\n 3)Pick a pace that will elevate your heart rate yet let you stay on  \n the machine for a while.");
+			textstack.push("Recumbent Bike: \n\n Equipment Needed: recumbent bike \n\n 1)Sit in the seat and adjust the seat so that your knee is slightly \n bent when the pedal is in the farthest position. \n\n 2)Adjust the resistance so that it is challenging yet allows you to keep \n good technique.");
 			return textstack;
 		}
 		if(i == 8 && textstack.isEmpty()){ 	//CORE W/ EQUIP
 			textstack.push("Seated Russian Twists: \n\n Equipment Needed: medicine ball \n\n 1)While seated, suspend your feet off of the ground. \n\n 2)Holding a medicine ball rotate your shoulders side to side touching \n the medicine ball to the ground. (Keep feet off floor)");
 			textstack.push("Side Throws: \n\n Equipment Needed: medicine ball, wall \n\n 1)Stand with feet hip-width apart; place left foot \n approximately one foot in front of right foot. \n\n 2)Hold medicine ball with both hands and arms only slightly bent. \n\n 3)Swing ball over to the right hip and forcefully underhand toss ball forward \n to the wall (or a partner). Keep the stomach drawn in to \n to maximize proper usage of muscle. \n\n 4)Catch ball on the bounce from your partner or wall and repeat according to \n prescribed repetitions."); 
-			textstack.push("Ball Plank: \n\n Equipment needed: medicine ball \n\n 1)While on your knees, place hands on a medicine ball. \n\n 2)Align hands at nipple line, place feet hip width apart \n on toes, and extend the arms to raise body up. \n Trunk and hips should be in a straight line. \n\n 3)Hold for 10 seconds. This is one set. Gradually build up \n to 30 seconds plus."); 
+			textstack.push("Ball Plank: \n\n Equipment Needed: medicine ball \n\n 1)While on your knees, place hands on a medicine ball. \n\n 2)Align hands at nipple line, place feet hip width apart \n on toes, and extend the arms to raise body up. \n Trunk and hips should be in a straight line. \n\n 3)Hold for 10 seconds. This is one set. Gradually build up \n to 30 seconds plus."); 
 			return textstack;
 		}
 		if(i == 9 && textstack.isEmpty()){ 
@@ -521,9 +522,9 @@ public class WorkOut extends JFrame {
 			textstack.push("Single Arm Rows: \n\n Equipment Needed: dumbbells, bench \n\n 1)Stand upright next to bench. Place one knee and \nhand on bench. Upper body should be parallel to \n the floor. \n\n 2)Hold one dumbbell with arm extended. \n\n 3)Raise dumbbell up to your midsection keeping back still throughout \n movement. \n\n 4)Slowly lower dumbbell to start position and repeat. After desired number of reps, \n repeat for other arm.");
 			textstack.push("Seated Russian Twists: \n\n Equipment Needed: medicine ball \n\n 1)While seated, suspend your feet off of the ground. \n\n 2)Holding a medicine ball rotate your shoulders side to side touching \n the medicine ball to the ground. (Keep feet off floor)");
 			textstack.push("Side Throws: \n\n Equipment Needed: medicine ball, wall \n\n 1)Stand with feet hip-width apart; place left foot \n approximately one foot in front of right foot. \n\n 2)Hold medicine ball with both hands and arms only slightly bent. \n\n 3)Swing ball over to the right hip and forcefully underhand toss ball forward \n to the wall (or a partner). Keep the stomach drawn in to \n to maximize proper usage of muscle. \n\n 4)Catch ball on the bounce from your partner or wall and repeat according to \n prescribed repetitions."); 
-			textstack.push("Ball Plank: \n\n Equipment needed: medicine ball \n\n 1)While on your knees, place hands on a medicine ball. \n\n 2)Align hands at nipple line, place feet hip width apart \n on toes, and extend the arms to raise body up. \n Trunk and hips should be in a straight line. \n\n 3)Hold for 10 seconds. This is one set. Gradually build up \n to 30 seconds plus."); 
+			textstack.push("Ball Plank: \n\n Equipment Needed: medicine ball \n\n 1)While on your knees, place hands on a medicine ball. \n\n 2)Align hands at nipple line, place feet hip width apart \n on toes, and extend the arms to raise body up. \n Trunk and hips should be in a straight line. \n\n 3)Hold for 10 seconds. This is one set. Gradually build up \n to 30 seconds plus."); 
 			textstack.push("Treadmill: \n\n Equipment Needed: treadmill \n\n 1)Start by placing the speed at a comfortable walk. \n If you want, increase the speed until you are into a jog \n or run. \n\n 2)You can also place the treadmill on an incline to increase the \n difficulty.");
-			textstack.push("Elliptical: \n\n Equipment Needed: equipment \n\n 1)Place your feet on the foot plates and grab the arm handles. \n\n 2)Set your resistance so that it is challenging and start the elliptical \n motion by pulling machine arm with one arm and push the \n other machine arm. \n\n 3)Pick a pace that will elevate your heart rate yet let you stay on  \n the machine for a while.");
+			textstack.push("Elliptical: \n\n Equipment Needed: elliptical \n\n 1)Place your feet on the foot plates and grab the arm handles. \n\n 2)Set your resistance so that it is challenging and start the elliptical \n motion by pulling machine arm with one arm and push the \n other machine arm. \n\n 3)Pick a pace that will elevate your heart rate yet let you stay on  \n the machine for a while.");
 			textstack.push("Recumbent Bike: \n\n Equipment Needed: \n\n 1)Sit in the seat and adjust the seat so that your knee is slightly \n bent when the pedal is in the farthest position. \n\n 2)Adjust the resistance so that it is challenging yet allows you to keep \n good technique.");
 			
 			return textstack;
