@@ -35,7 +35,7 @@ public class WorkOut extends JFrame {
 	int change = 0;
 	JTextArea txtArea;
 
-	static String tune = "resources/glutes_music.wav";
+	static String tune = "resources/workout.wav";
 	int counter;
 	JLabel timerLabel,promptLabel,animationE;
 	JButton btnStartWorkout,Exit;
