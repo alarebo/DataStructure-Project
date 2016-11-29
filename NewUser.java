@@ -3,6 +3,8 @@ import java.awt.event.ActionListener;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.SystemColor;
 
 @SuppressWarnings("serial")
 public class NewUser extends JFrame {
@@ -15,7 +17,7 @@ public class NewUser extends JFrame {
 	String gender="n/a",names;
 	int count;
 	
-	//Error Label error message is shown when one of the texfield is empty
+	//Error Label error message is shown when one of the textfield is empty
 	JLabel errorLabel;
 
 	 
@@ -29,7 +31,7 @@ public class NewUser extends JFrame {
     JTextField bmi = new JTextField(15);
     JLabel userL = new JLabel(" User Name:");
     JLabel passL = new JLabel("Password:");
-    JLabel heightL = new JLabel("Hieght");
+    JLabel heightL = new JLabel("Height:");
     JLabel nameL = new JLabel("Name:");
     JLabel ft = new JLabel("ft");
     JLabel inl = new JLabel("in");	  
@@ -38,8 +40,12 @@ public class NewUser extends JFrame {
     JLabel bmiL = new JLabel("Body mass index (BMI):");
     JButton bmical = new JButton("BMI Calcator");
     JButton create = new JButton("Create Account");
+    JButton baack = new JButton("Back");
     JRadioButton male = new JRadioButton("Male", false);
     JRadioButton female = new JRadioButton("Female", false);
+    
+    
+    
     
     public static void main(String[] args) 
 	{
@@ -76,11 +82,13 @@ public class NewUser extends JFrame {
         panel.add(bmical);    
         panel.add(bmiL); 
         panel.add(create);
+        panel.add(baack);
         panel.add(male);
         panel.add(female);
         panel.add(inl);
         panel.add(in);
         panel.add(ft);
+       
         
         JLabel lblGender = new JLabel("Gender");
         lblGender.setBounds(58, 183, 56, 16);
@@ -94,8 +102,18 @@ public class NewUser extends JFrame {
         errorLabel.setForeground(Color.RED);
         errorLabel.setBounds(42, 3, 295, 20);
         panel.add(errorLabel);
+        
+  
+        baack.setBounds(175, 249, 89, 23);
+        
+        JTextArea txtrTipIfYou = new JTextArea();
+        txtrTipIfYou.setBackground(new Color(240, 240, 240));
+        txtrTipIfYou.setFont(new Font("Monospaced", Font.PLAIN, 10));
+        txtrTipIfYou.setText("Tip: If you do not know your BMI, enter in your height and weight and we'll\t\r\n       do it for you! Just click on the BMI Calculator button.");
+        txtrTipIfYou.setForeground(Color.BLUE);
+        txtrTipIfYou.setBounds(10, 384, 464, 35);
+        panel.add(txtrTipIfYou);
         panel.repaint();
-
 
 
     }
@@ -121,7 +139,10 @@ public class NewUser extends JFrame {
 	    userL.setBounds(10,65,80,20);
 	    passL.setBounds(266,65,69,20);
 	    create.setBounds(15,250,150,20);
+	   
 	    ActionListener usr = new userInfo();
+	    ActionListener brb = new goBack();
+	    baack.addActionListener(brb);
 	    create.addActionListener(usr);
 
 	    
@@ -147,7 +168,18 @@ public class NewUser extends JFrame {
 	    ActionListener bt = new bmiListener();
 	    bmical.addActionListener(bt);
 	    panel.repaint();
+	    
 	}
+	
+	class goBack implements ActionListener{
+		public void actionPerformed(ActionEvent event)	
+		{
+			UserLogin lg = new UserLogin();
+			lg.setVisible(true);
+			 dispose();	
+		}
+	}
+	
 	class bmiListener implements ActionListener
 	{
 		//calculate the users Body Mass index
@@ -159,11 +191,12 @@ public class NewUser extends JFrame {
 		    double inch = Double.parseDouble(i);
 		    double w = Double.parseDouble(wieght);
 		    String n = height.getText(); 
-		    Double h = Double.parseDouble(n);
+		    Double h = Double.parseDouble(n);	    
 		    
-			if(wieght.equals("0") || n.equals("0")|| wieght.equals(""))
+			
+		    if(wieght.equals("0") || n.equals("0")|| wieght.equals(""))
 			{
-				JOptionPane.showMessageDialog(null,"please enter wieght in pounds and  your height to calulate bmi");
+				JOptionPane.showMessageDialog(null,"Please enter weight in pounds and your height to calulate BMI.");
 			}
 			else
 			{
@@ -177,6 +210,10 @@ public class NewUser extends JFrame {
 		}
 	}
 
+	
+    
+  
+	
 	class userInfo implements ActionListener
 	{   //calls the isEmpty boolean to check if the form is filled and pushes info into database
 
@@ -187,7 +224,7 @@ public class NewUser extends JFrame {
 		         iEmpty();
 			 if(count ==2)
 			 {
-				 errorLabel.setText("Error: one or more field entered are incorrect");
+				 errorLabel.setText("Error: One or more field(s) entered are incorrect.");
 			 }
 			 if(count ==0)
 			 {
@@ -199,7 +236,7 @@ public class NewUser extends JFrame {
 				 lg.p = PassWord;
 				 lg.setVisible(true);
 				 dispose();
-				 JOptionPane.showMessageDialog(null,"account Created "+names);
+				 JOptionPane.showMessageDialog(null,"Account Created: " + names);
 			 }
 		 }
 		
@@ -213,6 +250,7 @@ public class NewUser extends JFrame {
 		{
 			return count =2;		
 		}
+
 		else if(weight.getText().equals("0")||weight.getText().isEmpty()==true)
 		{
 			return count =2;
@@ -222,20 +260,20 @@ public class NewUser extends JFrame {
 			return count = 2;
 		}
 		
-		else if(b.equals("0")||b.isEmpty()==true)
+		else if(b.equals("0") || b.isEmpty()==true)
 		{
-			errorLabel.setText("Error: one or more field entered are incorrect");
+			errorLabel.setText("Error: one or more field(s) entered are incorrect.");
 			return count = 2;
 
 		}
 		else if(username.getText().isEmpty()==true)
 		{
-			errorLabel.setText("Error: one or more field entered are incorrect");
+			errorLabel.setText("Error: one or more field(s) entered are incorrect.");
 			return count = 2;
 		}
 		else if(name.getText().isEmpty()==true)
 		{
-			errorLabel.setText("Error: one or more field entered are incorrect");
+			errorLabel.setText("Error: one or more field entered are incorrect.");
 			return count = 2;
 		}
 		else if(!(count==2))
